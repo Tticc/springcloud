@@ -1,0 +1,27 @@
+server:
+  port: 8001
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-eureka
+  main:
+    allow-bean-definition-overriding: true
+
+
+eureka:
+  instance:
+    hostname: localhost
+    client:
+      register-with-eureka: false # false 表示不向注册中心注册自己
+      fetch-registry: false # false 表示自己就是注册中心，
+      service-url:
+        defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+        # 集群时，defaultZone写集群其他eureka服务的地址
+        # defaultZone: http://xxx:nn/eureka,http://aaa:nn/eureka,
+#    server:
+#      # 关闭自我保护机制
+#      enable-self-preservation: false
+#      # 2s 没响应则注销服务
+#      eviction-interval-timer-in-ms: 2000
+

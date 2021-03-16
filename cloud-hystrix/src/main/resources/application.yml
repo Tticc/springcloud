@@ -1,0 +1,28 @@
+server:
+  port: 9003
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-hystrix
+  main:
+    allow-bean-definition-overriding: true
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+  instance:
+    # 设置eureka实例名称
+    instance-id: cloudhystrix9003
+    prefer-ip-address: true
+
+
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+

@@ -1,0 +1,41 @@
+server:
+  port: 9002
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-order
+  main:
+    allow-bean-definition-overriding: true
+  # thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+#    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    cache: false
+#    content-type: text/html
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+  instance:
+    # 设置eureka实例名称
+    instance-id: cloudorder9002
+    prefer-ip-address: true
+
+
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+
+logging:
+  level:
+    com.wenc.springcloud.payment.feign.DemoFeignClient: debug
