@@ -18,6 +18,9 @@
   </modules>
 
   <properties>
+    <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+    <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+    <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
     <project.bulild.sourceEncoding>UTF-8</project.bulild.sourceEncoding>
     <maven.complier.source>1.8</maven.complier.source>
     <maven.complier.target>1.8</maven.complier.target>
@@ -28,6 +31,9 @@
     <!--<druid.version>1.1.16</druid.version>-->
     <hikari.version>3.3.1</hikari.version>
     <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
+    <!-- rocketmq -->
+    <rocketmq.vresion>4.5.1</rocketmq.vresion>
+    <rocketmq-spring-boot-starter.version>2.0.3</rocketmq-spring-boot-starter.version>
   </properties>
 
 
@@ -39,7 +45,7 @@
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.2.2.RELEASE</version>
+        <version>${spring.boot.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -47,7 +53,7 @@
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Hoxton.SR1</version>
+        <version>${spring-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -55,7 +61,7 @@
       <dependency>
         <groupId>com.alibaba.cloud</groupId>
         <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-        <version>2.1.0.RELEASE</version>
+        <version>${spring-cloud-alibaba.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -85,6 +91,27 @@
         <version>${mybatis.spring.boot.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.apache.rocketmq</groupId>
+        <artifactId>rocketmq-spring-boot-parent</artifactId>
+        <version>${rocketmq-spring-boot-starter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.rocketmq</groupId>
+        <artifactId>rocketmq-client</artifactId>
+        <version>${rocketmq.vresion}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.rocketmq</groupId>
+        <artifactId>rocketmq-acl</artifactId>
+        <version>${rocketmq.vresion}</version>
+      </dependency>
 
       <dependency>
         <groupId>junit</groupId>
