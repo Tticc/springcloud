@@ -15,6 +15,7 @@
     <module>cloud-payment</module>
     <module>cloud-eureka</module>
       <module>cloud-hystrix</module>
+    <module>cloud-rocketmq</module>
   </modules>
 
   <properties>
