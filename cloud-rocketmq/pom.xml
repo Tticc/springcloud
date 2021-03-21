@@ -12,13 +12,35 @@
     <artifactId>cloud-rocketmq</artifactId>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.rocketmq</groupId>-->
+<!--            <artifactId>rocketmq-client</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.rocketmq</groupId>-->
+<!--            <artifactId>rocketmq-acl</artifactId>-->
+<!--        </dependency>-->
+
+        <!--spring-boot-rocket-->
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-client</artifactId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
         </dependency>
+
+        <!--spring-cloud-stream-->
         <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-acl</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.rocketmq</groupId>
+                    <artifactId>rocketmq-client</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.rocketmq</groupId>
+                    <artifactId>rocketmq-acl</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 
@@ -63,5 +85,4 @@
         </dependency>
 
     </dependencies>
-
 </project>

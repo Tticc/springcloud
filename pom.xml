@@ -149,6 +149,15 @@
           <addResources>true</addResources>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>${maven.complier.source}</source>
+          <target>${maven.complier.target}</target>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

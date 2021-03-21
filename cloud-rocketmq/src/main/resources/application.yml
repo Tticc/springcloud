@@ -1,0 +1,47 @@
+server:
+  port: 9101
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-rocketmq
+  main:
+    allow-bean-definition-overriding: true
+
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: springbootRocketmq
+
+
+# spring-cloud-stream集成
+  cloud:
+    stream:
+      bindings:
+        input:
+          group: consumerGroup1
+          destination: TestTopic
+        output:
+          destination: TestTopic
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetchRegistry: true
+#    service-url:
+#      defaultZone: http://localhost:8001/eureka/
+#  instance:
+#    # 设置eureka实例名称
+#    instance-id: cloudrocketmq9001
+#    prefer-ip-address: true
+#    # 发送心跳间隔，默认30s
+#    lease-renewal-interval-in-seconds: 5
+
+
+logging:
+  level:
+    com.wenc.springcloud.payment.feign.DemoFeignClient: debug
